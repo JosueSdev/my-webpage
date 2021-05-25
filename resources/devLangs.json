@@ -1,0 +1,10 @@
+[
+    {
+        "src": "/static/image/logo/golang.svg",
+        "alt": "go"
+    },
+    {
+        "src": "/static/image/logo/react.svg",
+        "alt": "react"
+    }
+]

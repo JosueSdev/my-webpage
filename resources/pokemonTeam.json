@@ -1,0 +1,26 @@
+[
+    {
+        "src": "/static/image/pokemon/charmander.png",
+        "alt": "charmander"
+    },
+    {
+        "src": "/static/image/pokemon/heracross.png",
+        "alt": "heracross"
+    },
+    {
+        "src": "/static/image/pokemon/chinchou.png",
+        "alt": "chinchou"
+    },
+    {
+        "src": "/static/image/pokemon/gardevoir.png",
+        "alt": "gardevoir"
+    },
+    {
+        "src": "/static/image/pokemon/solrock.png",
+        "alt": "solrock"
+    },
+    {
+        "src": "/static/image/pokemon/centiskorch.png",
+        "alt": "centiskorch"
+    }
+]

@@ -3,31 +3,40 @@ import Link from 'next/link'
 
 import { ILanguage } from '../../../domain/model/languages'
 
-import strings from './strings'
+import staticStrings from './strings'
+
+export interface ILocaleStrings {
+    name: string,
+    title: string,
+    desc: string,
+}
 
 export default function DevCard(
     {
+        strings,
         language,
         devlangs,
         links,
         pokemon,
     }:
     {
+        strings: {[key: string]: ILocaleStrings},
         language: ILanguage,
         devlangs: Array<{src: string, alt: string}>,
         links: Array<{href: string, src: string, alt: string}>,
         pokemon?: Array<{src: string, alt: string}>,
     }
 ) {
-    const safeStrings = strings[language.id] || {}
+    const safeLocaleStrings = strings[language.id] || {}
+    const safeStaticStrings = staticStrings[language.id] || {}
 
     return (
         <div>
-            <p>{safeStrings.name}</p>
-            <p>{safeStrings.title}</p>
-            <p>{safeStrings.desc}</p>
+            <p>{safeLocaleStrings.name}</p>
+            <p>{safeLocaleStrings.title}</p>
+            <p>{safeLocaleStrings.desc}</p>
             <div>
-                <span>{safeStrings.devLangsTag}:</span>
+                <span>{safeStaticStrings.devLangsTag}:</span>
                 <div>
                     {
                         devlangs.map(lang => (
@@ -44,7 +53,7 @@ export default function DevCard(
                 </div>
             </div>
             <div>
-                <span>{safeStrings.linksTag}:</span>
+                <span>{safeStaticStrings.linksTag}:</span>
                 <div>
                     {
                         links.map(link => (
@@ -63,7 +72,7 @@ export default function DevCard(
             </div>
             {pokemon &&
             <div>
-                <span>{safeStrings.pokemonTag}:</span>
+                <span>{safeStaticStrings.pokemonTag}:</span>
                 <div>
                     {
                         pokemon.map(poke => (

@@ -1,0 +1,25 @@
+.footer {
+    display: flex;
+
+    padding: .5em 1em;
+
+    justify-content: space-between;
+    align-content: center;
+
+    color: var(--theme-color-footerColor);
+    background-color: var(--theme-color-footerBgColor);
+}
+
+.externalLinks {
+    display: grid;
+
+    align-self: center;
+    grid-auto-flow: column;
+    align-items: center;
+    column-gap: .5em;
+
+    padding: 1px;
+    line-height: 0;
+    border-radius: 18px;
+    background-color: var(--theme-color-footerContrastColor);
+}

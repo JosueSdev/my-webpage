@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+
+    padding: 1em;
+
+    justify-content: space-between;
+
+    background-color: var(--theme-color-headerBgColor);
+    color: var(--theme-color-headerColor);
+
+    cursor: default;
+}
+
+.siteName {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 900;
+}
+
+.languageLink, .languageLink:visited {
+    color: var(--theme-color-headerColor);
+}

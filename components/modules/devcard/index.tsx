@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 import { ILanguage } from '../../../domain/model/language'
 
 import staticStrings from './strings'
+import styles from './styles.module.css'
 
 export interface ILocaleStrings {
     name: string,
@@ -16,14 +16,12 @@ export default function DevCard(
         strings,
         language,
         devlangs,
-        links,
         pokemon,
     }:
     {
         strings: {[key: string]: ILocaleStrings},
         language: ILanguage,
         devlangs: Array<{src: string, alt: string}>,
-        links: Array<{href: string, src: string, alt: string}>,
         pokemon?: Array<{src: string, alt: string}>,
     }
 ) {
@@ -31,13 +29,17 @@ export default function DevCard(
     const safeStaticStrings = staticStrings[language.id] || {}
 
     return (
-        <div>
-            <p>{safeLocaleStrings.name}</p>
-            <p>{safeLocaleStrings.title}</p>
+        <div className={styles.box}>
+            <p className={styles.name}>
+                {safeLocaleStrings.name}
+            </p>
+            <p className={styles.title}>
+                {safeLocaleStrings.title}
+            </p>
             <p>{safeLocaleStrings.desc}</p>
             <div>
-                <span>{safeStaticStrings.devLangsTag}:</span>
-                <div>
+                <p>{safeStaticStrings.devLangsTag}:</p>
+                <div className={styles.techList}>
                     {
                         devlangs.map(lang => (
                             <Image
@@ -52,28 +54,10 @@ export default function DevCard(
                     }
                 </div>
             </div>
-            <div>
-                <span>{safeStaticStrings.linksTag}:</span>
-                <div>
-                    {
-                        links.map(link => (
-                            <a href={link.href} key={link.href}>
-                                <Image
-                                    src={link.src}
-                                    alt={link.alt}
-                                    title={link.alt}
-                                    width={36}
-                                    height={36}
-                                />
-                            </a>
-                        ))
-                    }
-                </div>
-            </div>
             {pokemon &&
             <div>
-                <span>{safeStaticStrings.pokemonTag}:</span>
-                <div>
+                <p>{safeStaticStrings.pokemonTag}:</p>
+                <div className={styles.pokemonList}>
                     {
                         pokemon.map(poke => (
                             <Image

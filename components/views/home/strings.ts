@@ -5,6 +5,6 @@ export default {
         header: '¡Bienvenido a mi página!',
     },
     [langs.english.id] : {
-        header: 'Welcome to my page!',
+        header: 'Welcome to my webpage!',
     },
 }

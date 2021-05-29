@@ -4,4 +4,17 @@
 
     --theme-typography-bodyFamily: 'Lora', serif;
     --theme-typography-bodyWeight: 400;
+
+    --theme-color-color: black;
+    --theme-color-background: #fce1e0;
+
+    --theme-color-headerColor: white;
+    --theme-color-headerBgColor: black;
+
+    --theme-color-footerColor: black;
+    --theme-color-footerContrastColor: white;
+    --theme-color-footerBgColor: black;
+
+    --theme-color-cardBg: rgba(255, 255, 255, .5);
+    --theme-shape-cardBorderRadius: 1em;
 }

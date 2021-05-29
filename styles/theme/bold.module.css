@@ -4,4 +4,17 @@
 
     --theme-typography-bodyFamily: 'Work Sans', sans-serif;
     --theme-typography-bodyWeight: 300;
+
+    --theme-color-color: #f03f35;
+    --theme-color-background: #b7e3e4;
+
+    --theme-color-headerColor: white;
+    --theme-color-headerBgColor: black;
+
+    --theme-color-footerColor: black;
+    --theme-color-footerContrastColor: white;
+    --theme-color-footerBgColor: black;
+
+    --theme-color-cardBg: rgba(255, 255, 255, .2);
+    --theme-shape-cardBorderRadius: 0;
 }

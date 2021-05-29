@@ -1,0 +1,29 @@
+.box {
+    padding: 0.1px 1em 1em;
+
+    border-radius: var(--theme-shape-cardBorderRadius);
+    background-color: var(--theme-color-cardBg);
+}
+
+.name {
+    font-size: 1.5em;
+    margin-bottom: 0;
+}
+
+.title {
+    margin-top: .1em;
+    opacity: .8;
+}
+
+.techList {
+    display: inline-grid;
+    grid-auto-flow: column;
+    column-gap: 1em;
+}
+
+.pokemonList {
+    display: flex;
+
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}

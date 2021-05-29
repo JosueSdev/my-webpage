@@ -1,5 +1,9 @@
 /*-----RESETS-----*/
 
+body {
+  height: 100%;
+}
+
 /*BOX SIZING*/
 html {
   box-sizing: border-box;

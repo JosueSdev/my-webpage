@@ -1,8 +1,4 @@
-/*-----RESETS-----*/
-
-body {
-  height: 100%;
-}
+/*-----DEFAULTS-----*/
 
 /*BOX SIZING*/
 html {
@@ -12,9 +8,17 @@ html {
   box-sizing: inherit;
 }
 
+body {
+  line-height: 1.5;
+}
+
 /*URL DECORATION*/
 a {
   text-decoration: none;
+  color: var(--theme-dark-color-link);
+}
+a:visited {
+  color: var(--theme-dark-color-linkVisited)
 }
 a:hover {
   text-decoration: underline;

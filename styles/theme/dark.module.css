@@ -18,5 +18,7 @@
     --theme-color-cardBg: rgba(255, 255, 255, .05);
     --theme-shape-cardBorderRadius: 1em;
 
-    --theme-dark-pictureOpacity: 0.9
+    --theme-dark-pictureOpacity: 0.9;
+    --theme-dark-color-link: #e6e1e3;
+    --theme-dark-color-linkVisited: #aca5a8;
 }

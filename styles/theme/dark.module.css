@@ -1,0 +1,22 @@
+.theme {
+    --theme-typography-headerFamily: 'Montserrat', sans-serif;
+    --theme-typography-headerWeight: 300;
+
+    --theme-typography-bodyFamily: 'Lora', serif;
+    --theme-typography-bodyWeight: 400;
+
+    --theme-color-color: #e6e1e3;
+    --theme-color-background: #0f060b;
+
+    --theme-color-headerColor: #e6e1e3;;
+    --theme-color-headerBgColor: black;
+
+    --theme-color-footerColor: black;
+    --theme-color-footerContrastColor: #e6e1e3;;
+    --theme-color-footerBgColor: black;
+
+    --theme-color-cardBg: rgba(255, 255, 255, .05);
+    --theme-shape-cardBorderRadius: 1em;
+
+    --theme-dark-pictureOpacity: 0.9
+}

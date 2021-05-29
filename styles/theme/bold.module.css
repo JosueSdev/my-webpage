@@ -1,0 +1,7 @@
+.theme {
+    --theme-typography-headerFamily: 'Montserrat', sans-serif;
+    --theme-typography-headerWeight: 900;
+
+    --theme-typography-bodyFamily: 'Work Sans', sans-serif;
+    --theme-typography-bodyWeight: 300;
+}

@@ -1,4 +1,4 @@
-import langs from '../../../domain/model/languages'
+import langs from '../../../usecase/languages'
 
 export default {
     [langs.spanish.id] : {

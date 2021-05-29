@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
 
-import languages, { ILanguage } from "../domain/model/languages";
+import { ILanguage } from "../domain/model/language";
 import { getStaticLangs, getLanguageById } from "../usecase/languages"
 import Home from "../components/views/home";
 
@@ -18,7 +18,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const language = getLanguageById(params.lang as string)
+    const language = params ? getLanguageById(params.lang as string) : undefined
 
     return {
         props: {

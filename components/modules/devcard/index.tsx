@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { ILanguage } from '../../../domain/model/languages'
+import { ILanguage } from '../../../domain/model/language'
 
 import staticStrings from './strings'
 

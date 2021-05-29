@@ -1,15 +1,30 @@
-/*--BOX SIZING RESET--*/
+/*-----RESETS-----*/
+
+/*BOX SIZING*/
 html {
   box-sizing: border-box;
 }
-
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
-/*--NO MARGIN RESET--*/
-html,
-body {
-  padding: 0;
-  margin: 0;
+/*URL DECORATION*/
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+/*-----THEME HOOKS-----*/
+
+*, *:before, *:after {
+  font-family: var(--theme-typography-bodyFamily);
+  font-weight: var(--theme-typography-bodyWeight);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--theme-typography-headerFamily);
+  font-weight: var(--theme-typography-headerWeight);
 }

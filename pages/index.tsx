@@ -1,6 +1,8 @@
 import Link from 'next/link'
 
-import languages from '../domain/model/languages'
+import languages from '../usecase/languages'
+
+import Layout from '../components/layout'
 
 export default function Index() {
     return (

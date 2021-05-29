@@ -10,6 +10,16 @@
 
     cursor: default;
 }
+@media screen and (min-width: 576px) {
+    .header {
+        padding: 1em 2em;
+    }
+}
+@media screen and (min-width: 576px) {
+    .header {
+        padding: 1em 3em;
+    }
+}
 
 .siteName {
     font-family: "Montserrat", sans-serif;

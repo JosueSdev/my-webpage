@@ -9,6 +9,16 @@
     color: var(--theme-color-footerColor);
     background-color: var(--theme-color-footerBgColor);
 }
+@media screen and (min-width: 576px) {
+    .footer {
+        padding: .5em 2em;
+    }
+}
+@media screen and (min-width: 576px) {
+    .footer {
+        padding: .5em 3em;
+    }
+}
 
 .externalLinks {
     display: grid;

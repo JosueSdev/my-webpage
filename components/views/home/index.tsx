@@ -12,7 +12,7 @@ import styles from './styles.module.css'
 export default function Home({language}: {language: ILanguage}) {
   const safeStrings = staticStrings[language.id] || {}
   return (
-    <>
+    <div className={styles.box}>
       <h1 className={styles.header}>
         {safeStrings.header}
       </h1>
@@ -22,6 +22,6 @@ export default function Home({language}: {language: ILanguage}) {
         devlangs={devlangs}
         pokemon={pokemon}
       />
-    </>
+    </div>
   )
 }

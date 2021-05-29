@@ -1,3 +1,8 @@
+.box {
+    margin: 0 auto;
+    max-width: 25em;
+}
+
 .header {
     text-align: center;
 }

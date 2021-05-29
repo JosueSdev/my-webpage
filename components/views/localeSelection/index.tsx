@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Head from 'next/head'
 
 import languages from '../../../usecase/languages'
 
@@ -7,6 +8,9 @@ import styles from './styles.module.css'
 export default function LocaleSelection() {
     return (
         <div className={styles.box}>
+            <Head>
+                <title>Josue S Dev</title>
+            </Head>
             <h1 className={styles.header}>
                 Elekti lingvon
             </h1>

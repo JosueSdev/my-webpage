@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import { ILanguage } from '../../../domain/model/language'
 
 import pokemon from '../../../resources/home/pokemonTeam.json'
@@ -13,6 +15,9 @@ export default function Home({language}: {language: ILanguage}) {
   const safeStrings = staticStrings[language.id] || {}
   return (
     <div className={styles.box}>
+      <Head>
+        <title>{safeStrings.title}</title>
+      </Head>
       <h1 className={styles.header}>
         {safeStrings.header}
       </h1>

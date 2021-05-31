@@ -13,23 +13,26 @@ import DevCard from '../../modules/devcard'
 
 import staticStrings from './strings'
 import styles from './styles.module.css'
+import Layout from '../../layout'
 
 export default function Home({language}: {language: ILanguage}) {
   const safeStrings = staticStrings[language.id] || {}
   return (
-    <div className={styles.box}>
-      <Head>
-        <title>{safeStrings.title}</title>
-      </Head>
-      <h1 className={styles.header}>
-        {safeStrings.header}
-      </h1>
-      <DevCard
-        strings={devStrings}
-        language={language}
-        devlangs={devlangs}
-        pokemon={pokemon}
-      />
-    </div>
+    <Layout language={language}>
+      <div className={styles.box}>
+        <Head>
+          <title>{safeStrings.title}</title>
+        </Head>
+        <h1 className={styles.header}>
+          {safeStrings.header}
+        </h1>
+        <DevCard
+          strings={devStrings}
+          language={language}
+          devlangs={devlangs}
+          pokemon={pokemon}
+        />
+      </div>
+    </Layout>
   )
 }

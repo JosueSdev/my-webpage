@@ -5,12 +5,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 
-    padding: 0 1rem;
+    padding: 3em 1em 0;
+    height: 100vh;
 
     font-size: 1.5em;
     text-transform: uppercase;
+
+    color: var(--theme-color-color);
+    background-color: var(--theme-color-background);
 }
 
 .header {

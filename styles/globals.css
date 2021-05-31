@@ -16,15 +16,8 @@ body {
 }
 
 /*URL DECORATION*/
-a {
-  text-decoration: none;
-  color: var(--theme-dark-color-link);
-}
 a:visited {
-  color: var(--theme-dark-color-linkVisited)
-}
-a:hover {
-  text-decoration: underline;
+  color: var(--theme-color-linkVisited)
 }
 
 

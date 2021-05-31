@@ -1,0 +1,10 @@
+{
+    "es": {
+        "title": "Inicio",
+        "header": "¡Bienvenido a mi página!"
+    },
+    "en": {
+        "title": "Home",
+        "header": "Welcome to my webpage!"
+    }
+}

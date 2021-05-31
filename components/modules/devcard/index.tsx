@@ -4,9 +4,15 @@
 import Image from 'next/image'
 
 import { ILanguage } from '../../../domain/model/language'
+import languages from '../../../usecase/languages'
 
-import staticStrings from './strings'
+import staticStrings from './strings.json'
 import styles from './styles.module.css'
+
+interface IStaticStrings {
+    devLangsTag: string,
+    pokemonTag: string,
+}
 
 export interface ILocaleStrings {
     name: string,
@@ -29,7 +35,13 @@ export default function DevCard(
     }
 ) {
     const safeLocaleStrings = strings[language.id] || {}
-    const safeStaticStrings = staticStrings[language.id] || {}
+    let safeStaticStrings: IStaticStrings = {} as IStaticStrings
+    if (language.id === languages.es.id) {
+        safeStaticStrings = staticStrings.es
+    }
+    if (language.id === languages.en.id) {
+        safeStaticStrings = staticStrings.en
+    }
 
     return (
         <div className={styles.box}>

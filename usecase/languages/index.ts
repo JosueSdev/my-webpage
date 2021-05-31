@@ -4,11 +4,11 @@
 import { ILanguage } from "../../domain/model/language";
 
 const languages: {[key: string]: ILanguage} = {
-    spanish: {
+    es: {
         id: 'es',
         value: 'español'
     },
-    english: {
+    en: {
         id: 'en',
         value: 'english'
     },

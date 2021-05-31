@@ -4,19 +4,33 @@
 import Head from 'next/head'
 
 import { ILanguage } from '../../../domain/model/language'
+import languages from '../../../usecase/languages'
 
 import pokemon from '../../../resources/home/pokemonTeam.json'
 import devlangs from '../../../resources/home/devLangs.json'
 import devStrings from '../../../resources/home/devStrings.json'
 
+import Layout from '../../layout'
 import DevCard from '../../modules/devcard'
 
-import staticStrings from './strings'
+import staticStrings from './strings.json'
 import styles from './styles.module.css'
-import Layout from '../../layout'
+
+interface IStaticStrings {
+  title: string,
+  header: string,
+}
 
 export default function Home({language}: {language: ILanguage}) {
-  const safeStrings = staticStrings[language.id] || {}
+  let safeStrings: IStaticStrings = {} as IStaticStrings
+
+  if(language.id === languages.es.id) {
+    safeStrings = staticStrings.es
+  }
+  if(language.id === languages.en.id) {
+    safeStrings = staticStrings.en
+  }
+
   return (
     <Layout language={language}>
       <div className={styles.box}>

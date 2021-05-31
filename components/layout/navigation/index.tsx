@@ -22,9 +22,9 @@ export default function Navigation({
     language,
 }: Props) {
     let data: Array<INavLink>
-    if (language.id === languages.spanish.id) {
+    if (language.id === languages.es.id) {
         data = navData.es
-    } else if (language.id === languages.english.id) {
+    } else if (language.id === languages.en.id) {
         data = navData.en
     } else {
         data = []

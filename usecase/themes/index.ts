@@ -11,15 +11,15 @@ export type TThemeSetter = (T: ITheme) => void
 
 const themes: Array<ITheme> = [
     {
-        name: 'dark',
+        name: 'Dark',
         value: themeDark.theme,
     },
     {
-        name: 'light',
+        name: 'Light',
         value: themeLight.theme,
     },
     {
-        name: 'bold',
+        name: 'Bold',
         value: themeBold.theme,
     },
 ]

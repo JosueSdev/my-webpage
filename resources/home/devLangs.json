@@ -4,6 +4,10 @@
         "alt": "go"
     },
     {
+        "src": "/static/image/logo/cpp.svg",
+        "alt": "c++"
+    },
+    {
         "src": "/static/image/logo/react.svg",
         "alt": "react"
     }

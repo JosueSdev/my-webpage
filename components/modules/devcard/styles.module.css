@@ -15,8 +15,15 @@
 }
 
 .title {
+    display: inline;
     margin-top: 0;
     opacity: .8;
+}
+
+.cv {
+    float: right;
+    margin-right: 1em;
+    z-index: 2;
 }
 
 .techList {

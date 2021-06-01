@@ -48,9 +48,21 @@ export default function DevCard(
             <p className={styles.name}>
                 {safeLocaleStrings.name}
             </p>
+            <span
+                className={styles.cv}
+            >
+                <a
+                    href='/static/docs/cv.pdf'
+                    target='_blank'
+                    rel='noopener'
+                >
+                    CV
+                </a>
+            </span>
             <p className={styles.title}>
                 {safeLocaleStrings.title}
             </p>
+            <br />
             <p>{safeLocaleStrings.desc}</p>
             <div>
                 <p>{safeStaticStrings.devLangsTag}:</p>

@@ -16,6 +16,9 @@ body {
 }
 
 /*URL DECORATION*/
+a {
+  color: inherit;
+}
 a:visited {
   color: var(--theme-color-linkVisited)
 }

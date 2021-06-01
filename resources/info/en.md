@@ -1,6 +1,9 @@
+
+[//]: # (license: CC BY-SA 4.0)
+
 # About this site
 
-Developed by Josué Sandoval © 2021. Done with learning, entertainment and self promotion purposes.
+Developed by Josué Sandoval © 2021. Made with learning, entertainment and self promotion purposes.
 
 ## Technologies
 
@@ -24,6 +27,6 @@ This is not a comprehensive list, in order to know all direct dependencies pleas
 
 ## Licence
 
-Source code published under [AGPL 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html) license, open for redistribution under new versions of the same license.
+Source code published under [AGPL 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html) license, open for redistribution under new versions of the same license. Get the source code in the following [github](https://github.com/JosueSdev/my-webpage) repository.
 
 Content authored by myself is being distributed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) licence.

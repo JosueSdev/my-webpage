@@ -1,0 +1,22 @@
+{
+    "es": [
+        {
+            "url": "/es",
+            "tag": "Inicio"
+        },
+        {
+            "url": "/es/info",
+            "tag": "Info"
+        }
+    ],
+    "en": [
+        {
+            "url": "/en",
+            "tag": "Home"
+        },
+        {
+            "url": "/en/info",
+            "tag": "Info"
+        }
+    ]
+}

@@ -31,13 +31,23 @@ export default function Footer({theme, setTheme}: Props) {
                                 src={link.src}
                                 alt={link.alt}
                                 title={link.alt}
-                                width={36}
-                                height={36}
+                                width={28}
+                                height={28}
                             />
                         </a>
                     ))
                 }
             </div>
+            <a
+                rel='license'
+                href='http://creativecommons.org/licenses/by-sa/4.0/'
+                className={styles.ccLink}
+            >
+                <img
+                    alt='Creative Commons License'
+                    src='https://i.creativecommons.org/l/by-sa/4.0/80x15.png'
+                />
+            </a>
             <select
                 value={theme.name}
                 onChange={e => {

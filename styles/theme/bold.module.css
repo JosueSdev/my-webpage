@@ -8,16 +8,22 @@
     --theme-typography-bodyFamily: 'Work Sans', sans-serif;
     --theme-typography-bodyWeight: 300;
 
-    --theme-color-color: #f03f35;
-    --theme-color-background: #b7e3e4;
+    --theme-color-color: rgb(240, 63, 53);
+    --theme-color-background: rgb(183, 227, 228);
 
-    --theme-color-headerColor: white;
-    --theme-color-headerBgColor: black;
+    --theme-color-linkVisited: rgb(185, 48, 40);
 
-    --theme-color-footerColor: black;
-    --theme-color-footerContrastColor: white;
-    --theme-color-footerBgColor: black;
+    --theme-color-headerColor: rgb(255, 255, 255);
+    --theme-color-headerBgColor: rgb(0, 0, 0);
+
+    --theme-color-navigationBgColor: rgba(0, 0, 0, 0.2);
+
+    --theme-color-footerColor: rgb(0, 0, 0);
+    --theme-color-footerContrastColor: rgb(255, 255, 255);
+    --theme-color-footerBgColor: rgb(0, 0, 0);
 
     --theme-color-cardBg: rgba(255, 255, 255, .2);
     --theme-shape-cardBorderRadius: 0;
+
+    --theme-dark-pictureOpacity: revert;
 }

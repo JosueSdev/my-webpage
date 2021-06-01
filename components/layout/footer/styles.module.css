@@ -23,13 +23,18 @@
     }
 }
 
+.ccLink {
+    align-self: center;
+    line-height: 0;
+}
+
 .externalLinks {
     display: grid;
 
     align-self: center;
     grid-auto-flow: column;
     align-items: center;
-    column-gap: .5em;
+    column-gap: .7em;
 
     padding: 1px;
     line-height: 0;

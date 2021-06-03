@@ -1,12 +1,12 @@
 [
     {
         "href": "https://github.com/JosueSdev/my-webpage",
-        "src": "/static/image/logo/github.svg",
+        "src": "/static/notowned/image/logo/github.svg",
         "alt": "github"
     },
     {
         "href": "https://www.linkedin.com/in/josué-ulises-sandoval-jiménez-4081bb204",
-        "src": "/static/image/logo/linkedin.svg",
+        "src": "/static/notowned/image/logo/linkedin.svg",
         "alt": "linkedin"
     }
 ]

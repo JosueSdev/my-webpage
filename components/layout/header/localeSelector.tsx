@@ -14,7 +14,7 @@ export default function LocaleSelector({locale} : Props) {
     const handleChangeLocale = (e: React.ChangeEvent<HTMLSelectElement>) => {
         e.preventDefault()
         if (typeof document !== 'undefined') {
-            Cookie.set('NEXT_LOCALE', e.target.value)
+            Cookie.set('NEXT_LOCALE', e.target.value, { secure: 'secure' })
         }
         router.push(router.pathname, '', {locale: e.target.value})
       }

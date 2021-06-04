@@ -6,11 +6,11 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import { ILanguage } from "../../domain/model/language";
 
 import { getStaticLangs, getLanguageById } from "../../usecase/languages"
-import { markdownString2React } from "../../usecase/remark"
+
+import { getInfobyLanguage, Markdown } from "../../controller/fs"
+import { markdownString2React } from "../../controller/remark"
 
 import Info from '../../components/views/info';
-
-import { getInfobyLanguage, Markdown } from "../../architecture/fs"
 
 interface Props {
     language: ILanguage,

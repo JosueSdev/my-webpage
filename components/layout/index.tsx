@@ -24,7 +24,9 @@ export default function Layout({
         <Theme>
         {(theme, setTheme) => (
             <div className={styles.layout}>
-                <Header />
+                <Header
+                    locale={language}
+                />
                 <Navigation
                     language={language}
                 />

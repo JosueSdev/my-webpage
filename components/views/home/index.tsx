@@ -3,8 +3,7 @@
 
 import Head from 'next/head'
 
-import { ILanguage } from '../../../domain/model/language'
-import languages from '../../../usecase/languages'
+import { languages, ILanguage } from '../../../domain/model/language'
 
 import pokemon from '../../../resources/home/pokemonTeam.json'
 import devlangs from '../../../resources/home/devLangs.json'

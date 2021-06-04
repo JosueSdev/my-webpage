@@ -1,9 +1,7 @@
 import React from 'react'
 import Head from 'next/head'
 
-import { ILanguage } from '../../../domain/model/language'
-
-import languages from '../../../usecase/languages'
+import { languages, ILanguage } from '../../../domain/model/language'
 
 import Layout from '../../layout'
 

@@ -4,7 +4,7 @@
 import Link from 'next/link'
 import Head from 'next/head'
 
-import languages from '../../../usecase/languages'
+import { languages } from '../../../domain/model/language'
 
 import styles from './styles.module.css'
 import Theme from '../../theme'

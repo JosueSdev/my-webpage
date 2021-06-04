@@ -3,8 +3,7 @@
 
 import Image from 'next/image'
 
-import { ILanguage } from '../../../domain/model/language'
-import languages from '../../../usecase/languages'
+import { languages, ILanguage } from '../../../domain/model/language'
 
 import staticStrings from './strings.json'
 import styles from './styles.module.css'

@@ -5,3 +5,14 @@ export interface ILanguage {
     id: string,
     value: string,
 }
+
+export const languages: {[key: string]: ILanguage} = {
+    es: {
+        id: 'es',
+        value: 'español'
+    },
+    en: {
+        id: 'en',
+        value: 'english'
+    },
+}

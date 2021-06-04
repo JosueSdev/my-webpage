@@ -3,8 +3,6 @@ import Head from 'next/head'
 
 import { languages, ILanguage } from '../../../domain/model/language'
 
-import Layout from '../../layout'
-
 import staticStrings from './strings.json'
 import styles from './styles.module.css'
 
@@ -29,9 +27,7 @@ export default function Info({
         sStrings = staticStrings.en
     }
     return (
-        <Layout
-            language={language}
-        >
+        <>
             <Head>
                 <title>{sStrings.title}</title>
             </Head>
@@ -40,6 +36,6 @@ export default function Info({
             >
                 {children}
             </article>
-        </Layout>
+        </>
     )
 }

@@ -9,7 +9,6 @@ import pokemon from '../../../resources/home/pokemonTeam.json'
 import devlangs from '../../../resources/home/devLangs.json'
 import devStrings from '../../../resources/home/devStrings.json'
 
-import Layout from '../../layout'
 import DevCard from '../../modules/devcard'
 
 import staticStrings from './strings.json'
@@ -31,21 +30,19 @@ export default function Home({language}: {language: ILanguage}) {
   }
 
   return (
-    <Layout language={language}>
-      <div className={styles.box}>
-        <Head>
-          <title>{safeStrings.title}</title>
-        </Head>
-        <h1 className={styles.header}>
-          {safeStrings.header}
-        </h1>
-        <DevCard
-          strings={devStrings}
-          language={language}
-          devlangs={devlangs}
-          pokemon={pokemon}
-        />
-      </div>
-    </Layout>
+    <div className={styles.box}>
+      <Head>
+        <title>{safeStrings.title}</title>
+      </Head>
+      <h1 className={styles.header}>
+        {safeStrings.header}
+      </h1>
+      <DevCard
+        strings={devStrings}
+        language={language}
+        devlangs={devlangs}
+        pokemon={pokemon}
+      />
+    </div>
   )
 }

@@ -21,15 +21,21 @@ export default function LocaleSelector({locale} : Props) {
 
     return (
         <select
-            value={locale.id}
+            value='default'
             onChange={handleChangeLocale}
         >
+            <option
+                value='default'
+                disabled
+            >
+                Lingvo
+            </option>
             {Object.keys(languages).map(lk => (
                 <option
                     key={languages[lk].id}
                     value={languages[lk].id}
                 >
-                    {languages[lk].id}
+                    {languages[lk].value}
                 </option>
             ))}
         </select>

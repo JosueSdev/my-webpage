@@ -3,7 +3,8 @@
 
 import { ILanguage } from '../../../domain/model/language';
 
-import LocaleSelector from './localeSelector';
+import LocaleSelector from '../../modules/localeSelector';
+
 import styles from './styles.module.css'
 
 export interface Props {

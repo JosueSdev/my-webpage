@@ -9,10 +9,10 @@ export interface ILanguage {
 export const languages: {[key: string]: ILanguage} = {
     es: {
         id: 'es',
-        value: 'español'
+        value: 'Español'
     },
     en: {
         id: 'en',
-        value: 'english'
+        value: 'English'
     },
 }

@@ -3,49 +3,37 @@
 
 import Image from 'next/image'
 
-import { languages, ILanguage } from '../../../domain/model/language'
+import { IImageResource } from '../../../domain/model/resource'
 
-import staticStrings from './strings.json'
 import styles from './styles.module.css'
 
-interface IStaticStrings {
-    devLangsTag: string,
-    pokemonTag: string,
+export interface IDevCardStrings {
+    tags: {
+        devLangs: string,
+        pokemon: string,
+    },
+    content: {
+        name: string,
+        title: string,
+        desc: string,
+    }
 }
 
-export interface ILocaleStrings {
-    name: string,
-    title: string,
-    desc: string,
+export interface Props {
+    strings: IDevCardStrings,
+    devLangs: Array<IImageResource>,
+    pokemon: Array<IImageResource>,
 }
 
-export default function DevCard(
-    {
-        strings,
-        language,
-        devlangs,
-        pokemon,
-    }:
-    {
-        strings: {[key: string]: ILocaleStrings},
-        language: ILanguage,
-        devlangs: Array<{src: string, alt: string}>,
-        pokemon?: Array<{src: string, alt: string}>,
-    }
-) {
-    const safeLocaleStrings = strings[language.id] || {}
-    let safeStaticStrings: IStaticStrings = {} as IStaticStrings
-    if (language.id === languages.es.id) {
-        safeStaticStrings = staticStrings.es
-    }
-    if (language.id === languages.en.id) {
-        safeStaticStrings = staticStrings.en
-    }
-
+export default function DevCard({
+    strings,
+    devLangs,
+    pokemon,
+}: Props) {
     return (
         <div className={styles.box}>
             <p className={styles.name}>
-                {safeLocaleStrings.name}
+                {strings.content.name}
             </p>
             <span
                 className={styles.cv}
@@ -59,15 +47,15 @@ export default function DevCard(
                 </a>
             </span>
             <p className={styles.title}>
-                {safeLocaleStrings.title}
+                {strings.content.title}
             </p>
             <br />
-            <p>{safeLocaleStrings.desc}</p>
+            <p>{strings.content.desc}</p>
             <div>
-                <p>{safeStaticStrings.devLangsTag}:</p>
+                <p>{strings.tags.devLangs}:</p>
                 <div className={styles.techList}>
                     {
-                        devlangs.map(lang => (
+                        devLangs.map(lang => (
                             <Image
                                 key={lang.src}
                                 src={lang.src}
@@ -82,7 +70,7 @@ export default function DevCard(
             </div>
             {pokemon &&
             <div>
-                <p>{safeStaticStrings.pokemonTag}:</p>
+                <p>{strings.tags.pokemon}:</p>
                 <div className={styles.pokemonList}>
                     {
                         pokemon.map(poke => (

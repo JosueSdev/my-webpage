@@ -1,0 +1,19 @@
+{
+    "ogType": "article",
+    "ogImage": {
+        "url": "/static/image/me.jpg",
+        "alt": "Josué Sandoval",
+        "width": "640",
+        "height": "640"
+    },
+    "es": {
+        "title": "Info",
+        "ogTitle": "JosueSDev | Info",
+        "ogDesc": "Información acerca del sitio web."
+    },
+    "en": {
+        "title": "Info",
+        "ogTitle": "JosueSDev | Info",
+        "ogDesc": "Information about the site."
+    }
+}

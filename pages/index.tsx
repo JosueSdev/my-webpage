@@ -17,12 +17,10 @@ import pokemonTeamRes from '../resources/home/pokemonTeam.json'
 import Home, { IHomeStrings } from "../components/views/home";
 import OpenGraph from '../components/modules/openGraph';
 import { OGImage } from '../domain/model/openGraph';
-import OpenGraphProfile from '../components/modules/openGraph/profile';
 
 interface MetaStrings {
     title: string,
-    ogTitle: string,
-    ogDesc: string,
+    desc: string,
 }
 
 interface Props {
@@ -49,16 +47,16 @@ export default function Index({
         <>
             <Head>
                 <title>{localMeta.title}</title>
+                <meta name="description" content={localMeta.desc} />
             </Head>
             <OpenGraph
-                title={localMeta.ogTitle}
+                title={localMeta.title}
                 url={canonicalURL}
                 type={metaRes.ogType}
                 image={ogImage}
-                description={localMeta.ogDesc}
+                description={localMeta.desc}
                 siteName={siteName}
             />
-            <OpenGraphProfile profile={metaRes.ogProfile} />
             <Home
                 strings={localContent}
                 langsList={devLengsRes}

@@ -1,20 +1,15 @@
 import Head from 'next/head'
 
-import { OGArticle, OGImage, OGProfile } from '../../../domain/model/openGraph'
-import Profile from './profile'
+import { OGImage } from '../../../domain/model/openGraph'
 
 export interface Props {
     title: string,
     url: string,
     type: string,
     image: OGImage,
-
     description?: string,
     siteName?: string,
     locale?: string,
-    localeAlternate?: Array<string>,
-
-    article?: OGArticle,
 }
 
 export default function OpenGraph({
@@ -25,8 +20,6 @@ export default function OpenGraph({
     description,
     siteName,
     locale,
-    localeAlternate,
-    article,
 }: Props) {
     return (
         <Head>
@@ -69,41 +62,6 @@ export default function OpenGraph({
                 <meta property='og:locale'
                     content={locale}
                 />
-            }
-            {localeAlternate && localeAlternate.map(alt => (
-                <meta property='og:locale:alternate'
-                    key={alt}
-                    content={alt}
-                />
-            ))}
-            {article &&
-            <>
-                <meta property='og:article:published_time'
-                    content={article.publishedTime}
-                />
-                {article.authors.map(author => (
-                    <Profile
-                        key={author.firstName+author.lastName}
-                        profile={author}
-                        as='author'
-                    />
-                ))}
-                {article.modifiedTime && (
-                    <meta property='og:article:modified_time'
-                        content={article.modifiedTime}
-                    />
-                )}
-                {article.section && (
-                    <meta property='og:article:section'
-                        content={article.section}
-                    />
-                )}
-                {article.tags && article.tags.map(tag => (
-                    <meta property='og:article:tag'
-                        content={tag}
-                    />
-                ))}
-            </>
             }
         </Head>
     )

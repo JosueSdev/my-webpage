@@ -7,13 +7,11 @@
         "height": "640"
     },
     "es": {
-        "title": "Info",
-        "ogTitle": "JosueSDev | Info",
-        "ogDesc": "Información acerca del sitio web."
+        "title": "Info | JosueSDev",
+        "desc": "Información acerca del sitio web."
     },
     "en": {
-        "title": "Info",
-        "ogTitle": "JosueSDev | Info",
-        "ogDesc": "Information about the site."
+        "title": "Info | JosueSDev",
+        "desc": "Information about the site."
     }
 }

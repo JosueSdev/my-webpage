@@ -6,19 +6,12 @@
         "width": "640",
         "height": "640"
     },
-    "ogProfile": {
-        "firstName": "Josué",
-        "lastName": "Sandoval",
-        "username": "JosueSDev"
-    },
     "es": {
-        "title": "Inicio",
-        "ogTitle": "JosueSDev",
-        "ogDesc": "¡Bienvenido a mi sitio web!"
+        "title": "JosueSDev",
+        "desc": "¡Bienvenido a mi sitio web!"
     },
     "en": {
-        "title": "Home",
-        "ogTitle": "JosueSDev",
-        "ogDesc": "Welcome to my page!"
+        "title": "JosueSDev",
+        "desc": "Welcome to my page!"
     }
 }

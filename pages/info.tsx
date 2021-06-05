@@ -17,12 +17,10 @@ import metaRes from '../resources/info/meta.json'
 
 import Info from '../components/views/info';
 import OpenGraph from '../components/modules/openGraph';
-import OpenGraphProfile from '../components/modules/openGraph/profile';
 
 interface MetaStrings {
     title: string,
-    ogTitle: string,
-    ogDesc: string,
+    desc: string,
 }
 
 interface Props {
@@ -49,21 +47,15 @@ export default function InfoPage({
         <>
             <Head>
                 <title>{localMeta.title}</title>
+                <meta name="description" content={localMeta.desc} />
             </Head>
             <OpenGraph
-                title={localMeta.ogTitle}
+                title={localMeta.title}
                 type={metaRes.ogType}
                 url={canonicalURL}
                 image={ogImage}
-                description={localMeta.ogDesc}
+                description={localMeta.desc}
                 siteName={siteName}
-            />
-            <OpenGraphProfile
-                profile={{
-                    firstName: '',
-                    lastName: '',
-                    url: canonicalURL,
-                }}
             />
             <Info>
                 {markdownString2React(markdown)}

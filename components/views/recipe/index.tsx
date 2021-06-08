@@ -21,12 +21,13 @@ export interface Props {
 
 export default function Recipes({
     recipes,
+    strings,
 }: Props) {
     const router = useRouter()
 
     return (
         <div className={styles.view}>
-            <h1>Recetas</h1>
+            <h1>{strings.content.header}</h1>
             <ul
                 className={styles.list}
             >
@@ -37,7 +38,10 @@ export default function Recipes({
                         title={recipe.title}
                         className={styles.listItem}
                     >
-                        <Link href={`${router.pathname}/${recipe.slug}`}>
+                        <Link
+                            href={`${router.pathname}/${recipe.slug}`}
+                            locale={recipe.locale}
+                        >
                             <a className={styles.img}>
                                 <img
                                     src={recipe.image.url}
@@ -51,7 +55,10 @@ export default function Recipes({
                                 </span>
                             </a>
                         </Link>
-                        <Link href={`${router.pathname}/${recipe.slug}`}>
+                        <Link
+                            href={`${router.pathname}/${recipe.slug}`}
+                            locale={recipe.locale}
+                        >
                             <a><h2>{recipe.title}</h2></a>
                         </Link>
                         <p>{recipe.description}</p>

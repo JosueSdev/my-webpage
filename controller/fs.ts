@@ -33,6 +33,17 @@ function getRecipeMeta(slug: string): IRecipeRes | undefined {
     return recipeMetadata
 }
 
+function getRecipeBySlug(slug: string): Markdown | undefined {
+    const metaPath = path.join(recipesDirectory, slug, 'content.md')
+    const file = fs.readFileSync(metaPath, {encoding: 'utf-8'})
+
+    if (!file) {
+        return undefined
+    }
+
+    return file.toString() as Markdown
+}
+
 function getRecipeSlugs(): Array<string>{
     return fs.readdirSync(recipesDirectory)
 }
@@ -50,4 +61,11 @@ export function getRecipesMetadata() : Array<IRecipeRes> {
         .sort((r1, r2) => (r1.published > r2.published ? -1 : 1))
     
         return recipes
+}
+
+export function getRecipeByGrub(slug: string): [Markdown | undefined, IRecipeRes | undefined] {
+    const content = getRecipeBySlug(slug)
+    const meta = getRecipeMeta(slug)
+
+    return [content, meta]
 }

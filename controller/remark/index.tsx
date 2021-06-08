@@ -7,7 +7,6 @@ import markdown from 'remark-parse'
 import remark2rehype from 'remark-rehype'
 import rehype2react from 'rehype-react'
 
-import CustomImg from './customImg'
 import CustomLink from './customLink'
 
 export function markdownString2React(md: string) {
@@ -18,7 +17,6 @@ export function markdownString2React(md: string) {
             createElement: React.createElement,
             components: {
                 a: CustomLink,
-                img: CustomImg,
             }
         })
         .processSync(md)

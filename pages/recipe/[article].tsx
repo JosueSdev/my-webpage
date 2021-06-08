@@ -41,7 +41,7 @@ export default function InfoPage({
             <OpenGraph
                 title={title}
                 type='article'
-                url={`${canonicalURL}/${router.asPath}`}
+                url={`${canonicalURL}${router.asPath}`}
                 image={ogImage}
                 description={desc}
                 siteName={siteName}

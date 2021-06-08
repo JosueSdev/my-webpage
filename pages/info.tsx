@@ -3,6 +3,7 @@
 
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import path from 'path'
 
 import { OGImage } from '../domain/model/openGraph';
@@ -38,6 +39,8 @@ export default function InfoPage({
     ogImage,
     siteName,
 }: Props) {
+    const router = useRouter()
+
     let localMeta: MetaStrings = metaRes.es
     if (language.id == languages.en.id) {
         localMeta = metaRes.en
@@ -52,7 +55,7 @@ export default function InfoPage({
             <OpenGraph
                 title={localMeta.title}
                 type={metaRes.ogType}
-                url={canonicalURL}
+                url={`${canonicalURL}${router.asPath}`}
                 image={ogImage}
                 description={localMeta.desc}
                 siteName={siteName}

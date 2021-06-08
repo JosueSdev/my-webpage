@@ -3,6 +3,7 @@
 
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import path from 'path'
 
 import { ILanguage, languages } from '../../domain/model/language'
@@ -39,6 +40,8 @@ export default function RecipesPage({
     siteName,
     recipes,
 }: Props){
+    const router = useRouter()
+
     let localMeta: MetaStrings = metaRes.es
     let localContent: IRecipesStrings = contentRes.es
     if (language.id == languages.en.id) {
@@ -54,7 +57,7 @@ export default function RecipesPage({
             </Head>
             <OpenGraph
                 title={localMeta.title}
-                url={canonicalURL}
+                url={`${canonicalURL}${router.asPath}`}
                 type={metaRes.ogType}
                 image={ogImage}
                 description={localMeta.desc}

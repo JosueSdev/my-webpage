@@ -58,6 +58,7 @@ export default function Index({
                 image={ogImage}
                 description={localMeta.desc}
                 siteName={siteName}
+                locale={language.id}
             />
             <Home
                 strings={localContent}

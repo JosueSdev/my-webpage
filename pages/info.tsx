@@ -60,6 +60,7 @@ export default function InfoPage({
                 image={ogImage}
                 description={localMeta.desc}
                 siteName={siteName}
+                locale={language.id}
             />
             <Info>
                 {markdownString2React(markdown)}

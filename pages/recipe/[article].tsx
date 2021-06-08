@@ -6,6 +6,9 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import { OGImage } from '../../domain/model/openGraph';
+import { ILanguage } from '../../domain/model/language'
+
+import { getLanguageById } from '../../usecase/language';
 
 import { getRecipeByGrub, getRecipesMetadata, Markdown } from "../../controller/fs"
 import { markdownString2React } from "../../controller/remark"
@@ -15,6 +18,7 @@ import OpenGraph from '../../components/modules/openGraph';
 import RecipeArticle from '../../components/views/recipe/article';
 
 interface Props {
+    language: ILanguage,
     title: string,
     desc: string,
     canonicalURL: string,
@@ -24,6 +28,7 @@ interface Props {
 }
 
 export default function InfoPage({
+    language,
     title,
     desc,
     canonicalURL,
@@ -45,6 +50,7 @@ export default function InfoPage({
                 image={ogImage}
                 description={desc}
                 siteName={siteName}
+                locale={language.id}
             />
             <RecipeArticle>
                 {markdownString2React(markdown)}
@@ -54,6 +60,7 @@ export default function InfoPage({
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale, params }) => {
+    const language = locale && getLanguageById(locale)
     const [markdown, meta] = getRecipeByGrub(params!.article as string)
 
     if (!markdown || !meta) {
@@ -68,6 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale, pa
 
     return {
         props: {
+            language,
             title: meta.title,
             desc: meta.description,
             canonicalURL,

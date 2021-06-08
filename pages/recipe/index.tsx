@@ -62,6 +62,7 @@ export default function RecipesPage({
                 image={ogImage}
                 description={localMeta.desc}
                 siteName={siteName}
+                locale={language.id}
             />
             <Recipes
                 recipes={recipes}

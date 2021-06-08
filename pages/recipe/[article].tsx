@@ -4,12 +4,12 @@
 import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import path from 'path'
 
 import { OGImage } from '../../domain/model/openGraph';
 
 import { getRecipeByGrub, getRecipesMetadata, Markdown } from "../../controller/fs"
 import { markdownString2React } from "../../controller/remark"
+import { getBaseCanonicalUrl, getCompleteOGImage } from '../../controller/static';
 
 import OpenGraph from '../../components/modules/openGraph';
 import RecipeArticle from '../../components/views/recipe/article';
@@ -62,12 +62,8 @@ export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale, pa
         }
     }
 
-    const isDefaultLocale = locale! === defaultLocale
-    const canonicalURL = path.join(process.env.VERCEL_URL || '', isDefaultLocale ? '' : locale!)
-    const ogImage: OGImage = {
-        ...meta.image,
-        url: path.join(canonicalURL, meta.image.url)
-    }
+    const canonicalURL = getBaseCanonicalUrl(locale!, defaultLocale!)
+    const ogImage: OGImage = getCompleteOGImage(meta.image, canonicalURL)
     const siteName = process.env.SITE_NAME
 
     return {

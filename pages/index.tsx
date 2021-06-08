@@ -9,6 +9,8 @@ import { ILanguage, languages } from "../domain/model/language";
 
 import { getLanguageById } from "../usecase/language"
 
+import { getBaseCanonicalUrl, getCompleteOGImage } from '../controller/static'
+
 import contentRes from '../resources/home/content.json'
 import metaRes from '../resources/home/meta.json'
 import devLengsRes from '../resources/home/devLangs.json'
@@ -69,12 +71,8 @@ export default function Index({
 export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {
     const language = locale && getLanguageById(locale)
 
-    const isDefaultLocale = locale! === defaultLocale
-    const canonicalURL = path.join(process.env.VERCEL_URL || '', isDefaultLocale ? '' : locale!)
-    const ogImage: OGImage = {
-        ...metaRes.ogImage,
-        url: path.join(canonicalURL, metaRes.ogImage.url)
-    }
+    const canonicalURL = getBaseCanonicalUrl(locale!, defaultLocale!)
+    const ogImage: OGImage = getCompleteOGImage(metaRes.ogImage, canonicalURL)
     const siteName = process.env.SITE_NAME
 
     return {

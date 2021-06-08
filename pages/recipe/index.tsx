@@ -4,7 +4,6 @@
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import path from 'path'
 
 import { ILanguage, languages } from '../../domain/model/language'
 import { OGImage } from '../../domain/model/openGraph'
@@ -13,6 +12,7 @@ import { IRecipeRes } from '../../domain/model/resource'
 import { getLanguageById } from '../../usecase/language'
 
 import { getRecipesMetadata } from '../../controller/fs'
+import { getBaseCanonicalUrl, getCompleteOGImage } from '../../controller/static'
 
 import Recipes, { IRecipesStrings } from '../../components/views/recipe'
 import OpenGraph from '../../components/modules/openGraph'
@@ -74,12 +74,8 @@ export default function RecipesPage({
 export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {
     const language = locale && getLanguageById(locale)
 
-    const isDefaultLocale = locale! === defaultLocale
-    const canonicalURL = path.join(process.env.VERCEL_URL || '', isDefaultLocale ? '' : locale!)
-    const ogImage: OGImage = {
-        ...metaRes.ogImage,
-        url: path.join(canonicalURL, metaRes.ogImage.url)
-    }
+    const canonicalURL = getBaseCanonicalUrl(locale!, defaultLocale!)
+    const ogImage: OGImage = getCompleteOGImage(metaRes.ogImage, canonicalURL)
     const siteName = process.env.SITE_NAME
     
     return {

@@ -13,6 +13,7 @@ import { getLanguageById } from "../usecase/language"
 
 import { getInfobyLanguage, Markdown } from "../controller/fs"
 import { markdownString2React } from "../controller/remark"
+import { getBaseCanonicalUrl, getCompleteOGImage } from '../controller/static';
 
 import metaRes from '../resources/info/meta.json'
 
@@ -74,12 +75,8 @@ export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) 
         getInfobyLanguage(language)
     : undefined
 
-    const isDefaultLocale = locale! === defaultLocale
-    const canonicalURL = path.join(process.env.VERCEL_URL || '', isDefaultLocale ? '' : locale!)
-    const ogImage: OGImage = {
-        ...metaRes.ogImage,
-        url: path.join(canonicalURL, metaRes.ogImage.url)
-    }
+    const canonicalURL = getBaseCanonicalUrl(locale!, defaultLocale!)
+    const ogImage: OGImage = getCompleteOGImage(metaRes.ogImage, canonicalURL)
     const siteName = process.env.SITE_NAME
 
     return {

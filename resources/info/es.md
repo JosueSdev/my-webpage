@@ -11,6 +11,14 @@ Desarrollado por Josué Sandoval © 2021. Con propósitos de aprendizaje, entret
 * CSS
 * ECMAScript
 
+## Características
+
+* Generación estática: eficiente y amigable con SEO.
+* Renderizado de archivos markdown.
+* Metadatos: nativos html y OpenGraph.
+* Internacionalización i18n.
+* Selector de temas.
+
 ## Dependencias
 
 La siguiente lista no es exhaustiva, para conocer todas las dependencias directas consulte el archivo [package.json](https://github.com/JosueSdev/my-webpage/blob/master/package.json).
@@ -29,4 +37,4 @@ La siguiente lista no es exhaustiva, para conocer todas las dependencias directa
 
 El código fuente está publicado bajo licencia [AGPL 3.0](https://www.gnu.org/licenses/agpl-3.0.en.html), abierta a redistribución con nuevas versiones de esta misma licencia. Puede acceder al código fuente en el siguiente repositorio de [github](https://github.com/JosueSdev/my-webpage).
 
-El contenido de mi autoría es distibuido bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+Contenido distibuido bajo licencia [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).

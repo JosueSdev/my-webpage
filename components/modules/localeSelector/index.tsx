@@ -19,7 +19,7 @@ export default function LocaleSelector({locale} : Props) {
         if (typeof document !== 'undefined') {
             Cookie.set('NEXT_LOCALE', e.target.value, { secure: 'secure' })
         }
-        router.push(router.pathname, '', {locale: e.target.value})
+        router.push(router.asPath, '', {locale: e.target.value})
       }
 
     return (

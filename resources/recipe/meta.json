@@ -1,0 +1,17 @@
+{
+    "ogType": "website",
+    "ogImage": {
+        "url": "/static/image/me.jpg",
+        "alt": "Josué Sandoval",
+        "width": "640",
+        "height": "640"
+    },
+    "es": {
+        "title": "Recetas | JosueSDev",
+        "desc": "Te comparto mis recetas favoritas."
+    },
+    "en": {
+        "title": "Recipes | JosueSDev",
+        "desc": "Sharing my favorite recipes."
+    }
+}

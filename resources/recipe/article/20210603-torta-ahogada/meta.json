@@ -1,0 +1,10 @@
+{
+    "title": "Tortas ahogadas",
+    "description": "Deliciosas tortas ahogadas con salsa rica en especias y un sutil acento de chocolate.",
+    "image": {
+        "url": "/static/notowned/image/asset/Torta_ahogada.jpg",
+        "alt": "Torta ahogada"
+    },
+    "locale": "es",
+    "published": "2021-06-07T16:40:09Z"
+}

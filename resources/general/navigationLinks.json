@@ -5,6 +5,10 @@
             "tag": "Inicio"
         },
         {
+            "url": "/recipe",
+            "tag": "Recetas"
+        },
+        {
             "url": "/info",
             "tag": "Info"
         }
@@ -13,6 +17,10 @@
         {
             "url": "/",
             "tag": "Home"
+        },
+        {
+            "url": "/recipe",
+            "tag": "Recipes"
         },
         {
             "url": "/info",

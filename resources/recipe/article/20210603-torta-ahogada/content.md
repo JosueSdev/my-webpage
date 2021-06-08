@@ -3,10 +3,12 @@
 
 # Tortas ahogadas
 
+_por Josué Sandoval._
+
 <figure>
 
-![Torta ahogada](https://upload.wikimedia.org/wikipedia/commons/6/6a/Torta_ahogada.jpg "Torta ahogada")
-<figcaption>Torta ahogada. Por Ivan.Romero, CC BY 3.0 via Wikimedia Commons.</figcaption>
+![Torta ahogada](/static/notowned/image/asset/Torta_ahogada.jpg "Torta ahogada")
+<figcaption>Torta ahogada. Imagen de Ivan.Romero, CC BY 3.0 via Wikimedia Commons.</figcaption>
 
 </figure>
 

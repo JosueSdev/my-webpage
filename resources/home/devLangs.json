@@ -1,14 +1,14 @@
 [
     {
-        "src": "/static/image/logo/golang.svg",
+        "src": "/static/notowned/image/logo/golang.svg",
         "alt": "go"
     },
     {
-        "src": "/static/image/logo/cpp.svg",
+        "src": "/static/notowned/image/logo/cpp.svg",
         "alt": "c++"
     },
     {
-        "src": "/static/image/logo/react.svg",
+        "src": "/static/notowned/image/logo/react.svg",
         "alt": "react"
     }
 ]

@@ -1,0 +1,17 @@
+{
+    "ogType": "profile",
+    "ogImage": {
+        "url": "/static/image/me.jpg",
+        "alt": "Josué Sandoval",
+        "width": "640",
+        "height": "640"
+    },
+    "es": {
+        "title": "JosueSDev",
+        "desc": "¡Bienvenido a mi sitio web!"
+    },
+    "en": {
+        "title": "JosueSDev",
+        "desc": "Welcome to my page!"
+    }
+}

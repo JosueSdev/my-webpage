@@ -6,7 +6,7 @@ export interface Props {
     children: React.ReactNode,
 }
 
-export default function Info({
+export default function RecipeArticle({
     children,
 }: Props) {
     return (

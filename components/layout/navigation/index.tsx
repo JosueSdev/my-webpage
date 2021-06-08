@@ -1,9 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { ILanguage } from '../../../domain/model/language'
-
-import languages from '../../../usecase/languages'
+import { languages, ILanguage } from '../../../domain/model/language'
 
 import navData from '../../../resources/general/navigationLinks.json'
 
@@ -41,7 +39,10 @@ export default function Navigation({
                 <li
                     key={link.url}
                 >
-                    <Link href={link.url}>
+                    <Link
+                        href={link.url}
+                        locale={language.id}
+                    >
                         <a>{link.tag}</a>
                     </Link>
                 </li>

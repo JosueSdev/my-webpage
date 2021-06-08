@@ -3,7 +3,7 @@
 
 # About this site
 
-Developed by Josué Sandoval © 2021. Made with learning, entertainment and self promotion purposes.
+Developed by Josué Sandoval © 2021. Made with educational, entertainment and self promotion purposes.
 
 ## Technologies
 

@@ -5,20 +5,22 @@ import React from 'react'
 import unified from 'unified'
 import markdown from 'remark-parse'
 import remark2rehype from 'remark-rehype'
+import raw from 'rehype-raw'
+import sanitize from 'rehype-sanitize'
 import rehype2react from 'rehype-react'
 
-import CustomImg from './customImg'
 import CustomLink from './customLink'
 
 export function markdownString2React(md: string) {
     return unified()
         .use(markdown)
-        .use(remark2rehype)
+        .use(remark2rehype, {allowDangerousHtml: true})
+        .use(raw)
+        .use(sanitize)
         .use(rehype2react, {
             createElement: React.createElement,
             components: {
                 a: CustomLink,
-                img: CustomImg,
             }
         })
         .processSync(md)

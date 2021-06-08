@@ -1,21 +1,29 @@
 {
     "es": [
         {
-            "url": "/es",
+            "url": "/",
             "tag": "Inicio"
         },
         {
-            "url": "/es/info",
+            "url": "/recipe",
+            "tag": "Recetas"
+        },
+        {
+            "url": "/info",
             "tag": "Info"
         }
     ],
     "en": [
         {
-            "url": "/en",
+            "url": "/",
             "tag": "Home"
         },
         {
-            "url": "/en/info",
+            "url": "/recipe",
+            "tag": "Recipes"
+        },
+        {
+            "url": "/info",
             "tag": "Info"
         }
     ]

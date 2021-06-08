@@ -3,20 +3,22 @@
 
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import path from 'path'
 
-import { ILanguage, languages } from "../domain/model/language";
+import { ILanguage, languages } from '../../domain/model/language'
+import { OGImage } from '../../domain/model/openGraph'
+import { IRecipeRes } from '../../domain/model/resource'
 
-import { getLanguageById } from "../usecase/language"
+import { getLanguageById } from '../../usecase/language'
 
-import contentRes from '../resources/home/content.json'
-import metaRes from '../resources/home/meta.json'
-import devLengsRes from '../resources/home/devLangs.json'
-import pokemonTeamRes from '../resources/home/pokemonTeam.json'
+import { getRecipesMetadata } from '../../controller/fs'
 
-import Home, { IHomeStrings } from "../components/views/home";
-import OpenGraph from '../components/modules/openGraph';
-import { OGImage } from '../domain/model/openGraph';
+import Recipes, { IRecipesStrings } from '../../components/views/recipe'
+import OpenGraph from '../../components/modules/openGraph'
+
+import metaRes from '../../resources/recipe/meta.json'
+import contentRes from '../../resources/recipe/content.json'
 
 interface MetaStrings {
     title: string,
@@ -28,16 +30,20 @@ interface Props {
     canonicalURL: string,
     ogImage: OGImage,
     siteName: string,
+    recipes: Array<IRecipeRes>,
 }
 
-export default function Index({
+export default function RecipesPage({
     language,
     canonicalURL,
     ogImage,
     siteName,
-}: Props) {
+    recipes,
+}: Props){
+    const router = useRouter()
+
     let localMeta: MetaStrings = metaRes.es
-    let localContent: IHomeStrings = contentRes.es
+    let localContent: IRecipesStrings = contentRes.es
     if (language.id == languages.en.id) {
         localMeta = metaRes.en
         localContent = contentRes.en
@@ -51,16 +57,15 @@ export default function Index({
             </Head>
             <OpenGraph
                 title={localMeta.title}
-                url={canonicalURL}
+                url={`${canonicalURL}${router.asPath}`}
                 type={metaRes.ogType}
                 image={ogImage}
                 description={localMeta.desc}
                 siteName={siteName}
             />
-            <Home
+            <Recipes
+                recipes={recipes}
                 strings={localContent}
-                langsList={devLengsRes}
-                pokemonList={pokemonTeamRes}
             />
         </>
     )
@@ -76,13 +81,15 @@ export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) 
         url: path.join(canonicalURL, metaRes.ogImage.url)
     }
     const siteName = process.env.SITE_NAME
-
+    
     return {
         props: {
             language,
             canonicalURL,
             ogImage,
-            ...siteName && {siteName}
+            ...siteName && {siteName},
+            recipes: getRecipesMetadata(),
         }
     }
 }
+

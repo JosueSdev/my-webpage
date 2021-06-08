@@ -1,52 +1,39 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 // Copyright © 2021 Josué Ulises Sandoval Jiménez
+import { IImageResource } from '../../../domain/model/resource'
 
-import Head from 'next/head'
+import DevCard, { IDevCardStrings } from '../../modules/devcard'
 
-import { ILanguage } from '../../../domain/model/language'
-import languages from '../../../usecase/languages'
-
-import pokemon from '../../../resources/home/pokemonTeam.json'
-import devlangs from '../../../resources/home/devLangs.json'
-import devStrings from '../../../resources/home/devStrings.json'
-
-import Layout from '../../layout'
-import DevCard from '../../modules/devcard'
-
-import staticStrings from './strings.json'
 import styles from './styles.module.css'
 
-interface IStaticStrings {
-  title: string,
-  header: string,
+export interface IHomeStrings {
+  content: {
+    header: string,
+  },
+  devCard: IDevCardStrings,
 }
 
-export default function Home({language}: {language: ILanguage}) {
-  let safeStrings: IStaticStrings = {} as IStaticStrings
+export interface Props {
+  strings: IHomeStrings,
+  langsList: Array<IImageResource>,
+  pokemonList: Array<IImageResource>,
+}
 
-  if(language.id === languages.es.id) {
-    safeStrings = staticStrings.es
-  }
-  if(language.id === languages.en.id) {
-    safeStrings = staticStrings.en
-  }
-
+export default function Home({
+  strings,
+  langsList,
+  pokemonList,
+}: Props) {
   return (
-    <Layout language={language}>
-      <div className={styles.box}>
-        <Head>
-          <title>{safeStrings.title}</title>
-        </Head>
-        <h1 className={styles.header}>
-          {safeStrings.header}
-        </h1>
-        <DevCard
-          strings={devStrings}
-          language={language}
-          devlangs={devlangs}
-          pokemon={pokemon}
-        />
-      </div>
-    </Layout>
+    <div className={styles.box}>
+      <h1 className={styles.header}>
+        {strings.content.header}
+      </h1>
+      <DevCard
+        strings={strings.devCard}
+        devLangs={langsList}
+        pokemon={pokemonList}
+      />
+    </div>
   )
 }

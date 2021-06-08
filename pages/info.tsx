@@ -3,20 +3,21 @@
 
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import path from 'path'
 
+import { OGImage } from '../domain/model/openGraph';
 import { ILanguage, languages } from "../domain/model/language";
 
 import { getLanguageById } from "../usecase/language"
 
-import contentRes from '../resources/home/content.json'
-import metaRes from '../resources/home/meta.json'
-import devLengsRes from '../resources/home/devLangs.json'
-import pokemonTeamRes from '../resources/home/pokemonTeam.json'
+import { getInfobyLanguage, Markdown } from "../controller/fs"
+import { markdownString2React } from "../controller/remark"
 
-import Home, { IHomeStrings } from "../components/views/home";
+import metaRes from '../resources/info/meta.json'
+
+import Info from '../components/views/info';
 import OpenGraph from '../components/modules/openGraph';
-import { OGImage } from '../domain/model/openGraph';
 
 interface MetaStrings {
     title: string,
@@ -25,22 +26,24 @@ interface MetaStrings {
 
 interface Props {
     language: ILanguage,
+    markdown: Markdown,
     canonicalURL: string,
     ogImage: OGImage,
     siteName: string,
 }
 
-export default function Index({
+export default function InfoPage({
     language,
+    markdown,
     canonicalURL,
     ogImage,
     siteName,
 }: Props) {
+    const router = useRouter()
+
     let localMeta: MetaStrings = metaRes.es
-    let localContent: IHomeStrings = contentRes.es
     if (language.id == languages.en.id) {
         localMeta = metaRes.en
-        localContent = contentRes.en
     }
 
     return (
@@ -51,23 +54,25 @@ export default function Index({
             </Head>
             <OpenGraph
                 title={localMeta.title}
-                url={canonicalURL}
                 type={metaRes.ogType}
+                url={`${canonicalURL}${router.asPath}`}
                 image={ogImage}
                 description={localMeta.desc}
                 siteName={siteName}
             />
-            <Home
-                strings={localContent}
-                langsList={devLengsRes}
-                pokemonList={pokemonTeamRes}
-            />
+            <Info>
+                {markdownString2React(markdown)}
+            </Info>
         </>
     )
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {
     const language = locale && getLanguageById(locale)
+
+    const markdown = language ?
+        getInfobyLanguage(language)
+    : undefined
 
     const isDefaultLocale = locale! === defaultLocale
     const canonicalURL = path.join(process.env.VERCEL_URL || '', isDefaultLocale ? '' : locale!)
@@ -80,6 +85,7 @@ export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) 
     return {
         props: {
             language,
+            markdown,
             canonicalURL,
             ogImage,
             ...siteName && {siteName}

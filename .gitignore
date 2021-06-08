@@ -33,3 +33,7 @@ yarn-error.log*
 
 # vercel
 .vercel
+.env
+
+# not owned files
+/public/static/notowned/

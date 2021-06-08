@@ -8,3 +8,7 @@ export function getLanguageById(id: string) {
     
     return langs.find(lang => lang.id === id)
 }
+
+export const singleLocalePathNames = [
+    '/recipe/[article]',
+]

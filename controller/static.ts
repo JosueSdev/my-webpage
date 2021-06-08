@@ -3,7 +3,7 @@ import { OGImage } from '../domain/model/openGraph'
 
 export function getBaseCanonicalUrl(locale: string, defaultLocale: string): string {
     const isDefaultLocale = locale! === defaultLocale
-    return path.join(process.env.CANONICAL_URL || '', isDefaultLocale ? '' : locale!)
+    return path.join(process.env.NEXT_PUBLIC_CANONICAL_URL || '', isDefaultLocale ? '' : locale!)
 }
 
 export function getCompleteOGImage(ogImage: OGImage, baseCanonUrl: string): OGImage {

@@ -7,3 +7,13 @@ export interface OGImage {
     width?: string,
     height?: string,
 }
+
+export interface OGMetadata {
+    title: string,
+    url: string,
+    type: string,
+    image: OGImage,
+    description?: string,
+    siteName?: string,
+    locale?: string,
+}

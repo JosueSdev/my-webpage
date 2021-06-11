@@ -3,17 +3,9 @@
 
 import Head from 'next/head'
 
-import { OGImage } from '../../../domain/model/openGraph'
+import { OGMetadata } from '../../../domain/model/openGraph'
 
-export interface Props {
-    title: string,
-    url: string,
-    type: string,
-    image: OGImage,
-    description?: string,
-    siteName?: string,
-    locale?: string,
-}
+export type Props = OGMetadata
 
 export default function OpenGraph({
     title,

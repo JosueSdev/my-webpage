@@ -1,0 +1,17 @@
+{
+    "ogType": "website",
+    "ogImage": {
+        "url": "/static/image/me.jpg",
+        "alt": "Josué Sandoval",
+        "width": "640",
+        "height": "640"
+    },
+    "es": {
+        "title": "Vista API | JosueSDev",
+        "desc": "Accede al contenido de la página con su API tipo REST."
+    },
+    "en": {
+        "title": "API view | JosueSDev",
+        "desc": "Request the site's content through its RESTful API."
+    }
+}

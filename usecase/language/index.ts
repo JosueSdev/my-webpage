@@ -12,3 +12,18 @@ export function getLanguageById(id: string) {
 export const singleLocalePathNames = [
     '/recipe/[article]',
 ]
+
+interface LocaleObj {
+    es: any,
+    en: any,
+}
+
+export function getLocaleField(obj: LocaleObj, locale: string) {
+    let field = obj.es
+
+    if (locale === languages.en.id) {
+        field = obj.en
+    }
+
+    return field
+}

@@ -8,6 +8,7 @@ import { ILanguage } from '../domain/model/language'
 import { getLanguageById } from '../usecase/language'
 
 import '../styles/globals.css'
+import '../styles/box.css'
 import '../styles/normalize.css'
 import Layout from '../components/layout'
 

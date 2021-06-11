@@ -16,3 +16,10 @@ export interface IRecipeRes {
     locale: string,
     published: string,
 }
+
+export interface IEndPoint {
+    method: string,
+    url: string,
+    showUrl: string,
+    desc: string,
+}

@@ -1,0 +1,11 @@
+{
+    "name": "my-page-api",
+    "greetings": {
+        "en": "Welcome to my API!",
+        "es": "¡Bienvenido a mi API!"
+    },
+    "author": "Josué Ulises Sandoval Jimenez",
+    "license": "AGPL-3.0-or-later",
+    "source": "https://github.com/JosueSdev/my-webpage/tree/master/pages/api",
+    "documentation": "https://josuesdev.vercel.app/apipage"
+}

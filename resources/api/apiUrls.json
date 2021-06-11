@@ -1,0 +1,56 @@
+[
+    {
+        "method": "GET",
+        "url": "/api/",
+        "showUrl": "/api/",
+        "desc": {
+            "es": "Obtén el saludo de la API.",
+            "en": "Get the API's greetings."
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/profile",
+        "showUrl": "/api/profile",
+        "desc": {
+            "es": "Obtén los datos de mi perfil.",
+            "en": "Get the data populating my profile."
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/recipe",
+        "showUrl": "/api/recipe",
+        "desc": {
+            "es": "Obtén la lista de recetas disponibles.",
+            "en": "Get a list of available recipes."
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/recipe/20210603-torta-ahogada",
+        "showUrl": "/api/recipe/[article]",
+        "desc": {
+            "es": "Obtén la receta solicitada.",
+            "en": "Get the requested recipe"
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/info",
+        "showUrl": "/api/info",
+        "desc": {
+            "es": "Obtén la el contenido de la página de información.",
+            "en": "get the content from the info page."
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/apipage",
+        "showUrl": "/api/apipage",
+        "desc": {
+            "es": "Obtén la lista que estás leyendo.",
+            "en": "Get the list you're reading right now."
+        }
+    }
+]

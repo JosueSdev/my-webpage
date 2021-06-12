@@ -4,13 +4,22 @@
 import Http from 'http'
 import { VercelRequest, VercelResponse } from '@vercel/node'
 
+/*
 import { getRecipesMetadata } from '../../../controller/fs'
+*/
+
+import recipeMetaRes from '../../../resources/recipe/meta.json'
 
 export default function (req: VercelRequest, res: VercelResponse) {
     let status = 200
 
     if (req.method === "GET") {
-        res.json(getRecipesMetadata())
+        res.json({
+            metadata: recipeMetaRes,
+            /*
+            recipes: getRecipesMetadata()
+            */
+        })
         return
     } else {
         status = 405

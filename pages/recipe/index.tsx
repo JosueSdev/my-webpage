@@ -5,11 +5,11 @@ import { GetStaticProps } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import { ILanguage, languages } from '../../domain/model/language'
-import { OGImage } from '../../domain/model/openGraph'
+import { OGMetadata } from '../../domain/model/openGraph'
 import { IRecipeRes } from '../../domain/model/resource'
 
-import { getLanguageById } from '../../usecase/language'
+import { getLocaleField } from '../../usecase/language'
+import { newOpenGraphMetadata } from '../../usecase/opengraph'
 
 import { getRecipesMetadata } from '../../controller/fs'
 import { getBaseCanonicalUrl, getCompleteOGImage } from '../../controller/static'
@@ -20,73 +20,63 @@ import OpenGraph from '../../components/modules/openGraph'
 import metaRes from '../../resources/recipe/meta.json'
 import contentRes from '../../resources/recipe/content.json'
 
-interface MetaStrings {
-    title: string,
-    desc: string,
-}
 
 interface Props {
-    language: ILanguage,
-    canonicalURL: string,
-    ogImage: OGImage,
-    siteName: string,
+    meta: OGMetadata,
     recipes: Array<IRecipeRes>,
+    strings: IRecipesStrings,
 }
 
 export default function RecipesPage({
-    language,
-    canonicalURL,
-    ogImage,
-    siteName,
+    meta,
     recipes,
+    strings,
 }: Props){
     const router = useRouter()
-
-    let localMeta: MetaStrings = metaRes.es
-    let localContent: IRecipesStrings = contentRes.es
-    if (language.id == languages.en.id) {
-        localMeta = metaRes.en
-        localContent = contentRes.en
-    }
 
     return (
         <>
             <Head>
-                <title>{localMeta.title}</title>
-                <meta name="description" content={localMeta.desc} />
+                <title>{meta.title}</title>
+                <meta name="description" content={meta.description} />
             </Head>
             <OpenGraph
-                title={localMeta.title}
-                url={`${canonicalURL}${router.asPath}`}
+                title={meta.title}
+                url={`${meta.url}${router.asPath}`}
                 type={metaRes.ogType}
-                image={ogImage}
-                description={localMeta.desc}
-                siteName={siteName}
-                locale={language.id}
+                image={meta.image}
+                description={meta.description}
+                siteName={meta.siteName}
+                locale={meta.locale}
             />
             <Recipes
                 recipes={recipes}
-                strings={localContent}
+                strings={strings}
             />
         </>
     )
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {
-    const language = locale && getLanguageById(locale)
+    const canonicalUrl = getBaseCanonicalUrl(locale!, defaultLocale!)
+    const localeMeta = getLocaleField(metaRes, locale!) as typeof metaRes.es
 
-    const canonicalURL = getBaseCanonicalUrl(locale!, defaultLocale!)
-    const ogImage: OGImage = getCompleteOGImage(metaRes.ogImage, canonicalURL)
-    const siteName = process.env.SITE_NAME
+    const meta = newOpenGraphMetadata(
+        localeMeta.title,
+        canonicalUrl,
+        metaRes.ogType,
+        getCompleteOGImage(metaRes.ogImage, canonicalUrl),
+        localeMeta.desc,
+        locale,
+        process.env.SITE_NAME,
+    )
     
     return {
         props: {
-            language,
-            canonicalURL,
-            ogImage,
-            ...siteName && {siteName},
+            meta,
             recipes: getRecipesMetadata(),
-        }
+            strings: getLocaleField(contentRes, locale!) as typeof contentRes.es
+        } as Props
     }
 }
 

@@ -5,10 +5,9 @@ import { GetStaticProps, GetStaticPaths } from 'next'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import { OGImage } from '../../domain/model/openGraph';
-import { ILanguage } from '../../domain/model/language'
+import { OGMetadata } from '../../domain/model/openGraph';
 
-import { getLanguageById } from '../../usecase/language';
+import { newOpenGraphMetadata } from '../../usecase/opengraph';
 
 import { getRecipeByGrub, getRecipesMetadata, Markdown } from "../../controller/fs"
 import { markdownString2React } from "../../controller/remark"
@@ -18,39 +17,29 @@ import OpenGraph from '../../components/modules/openGraph';
 import RecipeArticle from '../../components/views/recipe/article';
 
 interface Props {
-    language: ILanguage,
-    title: string,
-    desc: string,
-    canonicalURL: string,
-    ogImage: OGImage,
-    siteName: string,
+    meta: OGMetadata,
     markdown: Markdown,
 }
 
 export default function InfoPage({
-    language,
-    title,
-    desc,
-    canonicalURL,
-    ogImage,
-    siteName,
+    meta,
     markdown,
 }: Props) {
     const router = useRouter()
     return (
         <>
             <Head>
-                <title>{title}</title>
-                <meta name="description" content={desc} />
+                <title>{meta.title}</title>
+                <meta name="description" content={meta.description} />
             </Head>
             <OpenGraph
-                title={title}
-                type='article'
-                url={`${canonicalURL}${router.asPath}`}
-                image={ogImage}
-                description={desc}
-                siteName={siteName}
-                locale={language.id}
+                title={meta.title}
+                type={meta.type}
+                url={`${meta.url}${router.asPath}`}
+                image={meta.image}
+                description={meta.description}
+                siteName={meta.siteName}
+                locale={meta.locale}
             />
             <RecipeArticle>
                 {markdownString2React(markdown)}
@@ -60,7 +49,6 @@ export default function InfoPage({
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale, params }) => {
-    const language = locale && getLanguageById(locale)
     const [markdown, meta] = getRecipeByGrub(params!.article as string)
 
     if (!markdown || !meta) {
@@ -70,19 +58,21 @@ export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale, pa
     }
 
     const canonicalURL = getBaseCanonicalUrl(locale!, defaultLocale!)
-    const ogImage: OGImage = getCompleteOGImage(meta.image, canonicalURL)
-    const siteName = process.env.SITE_NAME
+    const ogMeta = newOpenGraphMetadata(
+        meta.title,
+        canonicalURL,
+        'article',
+        getCompleteOGImage(meta.image, canonicalURL),
+        meta.description,
+        process.env.SITE_NAME,
+        meta.locale
+    )
 
     return {
         props: {
-            language,
-            title: meta.title,
-            desc: meta.description,
-            canonicalURL,
-            ogImage,
-            ...siteName && {siteName},
+            meta: ogMeta,
             markdown,
-        }
+        } as Props
     }
 }
 

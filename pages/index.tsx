@@ -3,85 +3,80 @@
 
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import path from 'path'
 
-import { ILanguage, languages } from "../domain/model/language";
+import { IImageResource } from '../domain/model/resource';
+import { OGMetadata } from '../domain/model/openGraph';
 
-import { getLanguageById } from "../usecase/language"
+import { getLocaleField } from "../usecase/language"
+import { newOpenGraphMetadata } from '../usecase/opengraph';
 
 import { getBaseCanonicalUrl, getCompleteOGImage } from '../controller/static'
+
+import Home, { IHomeStrings } from "../components/views/home";
+import OpenGraph from '../components/modules/openGraph';
 
 import contentRes from '../resources/home/content.json'
 import metaRes from '../resources/home/meta.json'
 import devLengsRes from '../resources/home/devLangs.json'
 import pokemonTeamRes from '../resources/home/pokemonTeam.json'
 
-import Home, { IHomeStrings } from "../components/views/home";
-import OpenGraph from '../components/modules/openGraph';
-import { OGImage } from '../domain/model/openGraph';
-
-interface MetaStrings {
-    title: string,
-    desc: string,
-}
-
 interface Props {
-    language: ILanguage,
-    canonicalURL: string,
-    ogImage: OGImage,
-    siteName: string,
+    meta: OGMetadata,
+    content: IHomeStrings,
+    devLangs: Array<IImageResource>,
+    pokemonTeam: Array<IImageResource>,
 }
 
 export default function Index({
-    language,
-    canonicalURL,
-    ogImage,
-    siteName,
+    meta,
+    content,
+    devLangs,
+    pokemonTeam,
 }: Props) {
-    let localMeta: MetaStrings = metaRes.es
-    let localContent: IHomeStrings = contentRes.es
-    if (language.id == languages.en.id) {
-        localMeta = metaRes.en
-        localContent = contentRes.en
-    }
-
     return (
         <>
             <Head>
-                <title>{localMeta.title}</title>
-                <meta name="description" content={localMeta.desc} />
+                <title>{meta.title}</title>
+                <meta name="description" content={meta.description} />
             </Head>
             <OpenGraph
-                title={localMeta.title}
-                url={canonicalURL}
-                type={metaRes.ogType}
-                image={ogImage}
-                description={localMeta.desc}
-                siteName={siteName}
-                locale={language.id}
+                title={meta.title}
+                url={meta.url}
+                type={meta.type}
+                image={meta.image}
+                description={meta.description}
+                siteName={meta.siteName}
+                locale={meta.locale}
             />
             <Home
-                strings={localContent}
-                langsList={devLengsRes}
-                pokemonList={pokemonTeamRes}
+                strings={content}
+                langsList={devLangs}
+                pokemonList={pokemonTeam}
             />
         </>
     )
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) => {
-    const language = locale && getLanguageById(locale)
-
+    const localMeta = getLocaleField(metaRes, locale!) as typeof metaRes.es
     const canonicalURL = getBaseCanonicalUrl(locale!, defaultLocale!)
-    const ogImage: OGImage = getCompleteOGImage(metaRes.ogImage, canonicalURL)
-    const siteName = process.env.SITE_NAME
+
+    const meta = newOpenGraphMetadata(
+        localMeta.title,
+        canonicalURL,
+        metaRes.ogType,
+        getCompleteOGImage(metaRes.ogImage, canonicalURL),
+        localMeta.desc,
+        process.env.SITE_NAME,
+        locale
+    )
 
     return {
         props: {
-            language,
-            canonicalURL,
-            ogImage,
-            ...siteName && {siteName}
-        }
+            meta,
+            content: getLocaleField(contentRes, locale!) as typeof contentRes.es,
+            devLangs: devLengsRes,
+            pokemonTeam: pokemonTeamRes,
+        } as Props
     }
 }

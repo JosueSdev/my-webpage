@@ -67,8 +67,8 @@ export const getStaticProps: GetStaticProps = async ({ locale, defaultLocale }) 
         metaRes.ogType,
         getCompleteOGImage(metaRes.ogImage, canonicalUrl),
         localeMeta.desc,
-        locale,
         process.env.SITE_NAME,
+        locale,
     )
     
     return {

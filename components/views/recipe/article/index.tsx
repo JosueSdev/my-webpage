@@ -1,4 +1,5 @@
 import React from 'react'
+import classnames from 'classnames'
 
 import styles from './styles.module.css'
 
@@ -11,7 +12,10 @@ export default function RecipeArticle({
 }: Props) {
     return (
         <article
-            className={styles.article}
+            className={classnames(
+                styles.article,
+                'box',
+            )}
         >
             {children}
         </article>

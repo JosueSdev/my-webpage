@@ -2,21 +2,27 @@
 /* Copyright © 2021 Josué Ulises Sandoval Jiménez */
 
 .box {
-    padding: 0 1em;
+    padding: 0 1em 1em;
 }
 @media screen and (min-width: 576px) {
     .box {
-        padding: 0 2em;
+        padding: 0 2em 1em;
     }
 }
 @media screen and (min-width: 768px) {
     .box {
-        padding: 0 3em;
+        padding: 0 3em 1em;
     }
 }
 @media screen and (min-width: 992px) {
     .box {
-        padding: 0em 5em;
-        max-width: 800px;
+        padding: 0em 5em 2em;
+        max-width: calc(992px - 10em);
+    }
+}
+@media screen and (min-width: 1200px) {
+    .box {
+        padding: 0em 7em 2em;
+        max-width: calc(1200px - 14em);
     }
 }

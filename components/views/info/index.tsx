@@ -11,7 +11,7 @@ export default function Info({
 }: Props) {
     return (
         <article
-            className={styles.article}
+            className="box"
         >
             {children}
         </article>

@@ -26,7 +26,7 @@ export default function Recipes({
     const router = useRouter()
 
     return (
-        <div className={styles.view}>
+        <div className="box">
             <h1>{strings.content.header}</h1>
             <ul
                 className={styles.list}

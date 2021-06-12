@@ -2,13 +2,16 @@
 // Copyright © 2021 Josué Ulises Sandoval Jiménez
 
 import React from "react";
+
 import { ILanguage } from '../../domain/model/language';
 
-import Theme from '../theme';
+import { getLocalizedNavigationLinks } from '../../controller/app';
 
+import Theme from '../theme';
 import Footer from './footer';
 import Header from './header';
 import Navigation from './navigation';
+
 import styles from './styles.module.css'
 
 export interface Props {
@@ -29,6 +32,7 @@ export default function Layout({
                 />
                 <Navigation
                     language={language}
+                    links={getLocalizedNavigationLinks(language.id)}
                 />
                 <div className={styles.body}>
                     {children}

@@ -1,32 +1,20 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { languages, ILanguage } from '../../../domain/model/language'
-
-import navData from '../../../resources/general/navigationLinks.json'
+import { INavigationLink } from '../../../domain/model/resource'
+import { ILanguage } from '../../../domain/model/language'
 
 import styles from './styles.module.css'
 
 export interface Props {
+    links: Array<INavigationLink>,
     language: ILanguage,
 }
 
-interface INavLink {
-    url: string,
-    tag: string,
-}
-
 export default function Navigation({
+    links,
     language,
 }: Props) {
-    let data: Array<INavLink>
-    if (language.id === languages.es.id) {
-        data = navData.es
-    } else if (language.id === languages.en.id) {
-        data = navData.en
-    } else {
-        data = []
-    }
 
     return (
         <nav
@@ -35,7 +23,7 @@ export default function Navigation({
             <ul
                 className={styles.list}
             >
-            {data.map(link => (
+            {links.map(link => (
                 <li
                     key={link.url}
                 >

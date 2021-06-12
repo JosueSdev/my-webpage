@@ -23,3 +23,8 @@ export interface IEndPoint {
     showUrl: string,
     desc: string,
 }
+
+export interface INavigationLink {
+    url: string,
+    tag: string,
+}

@@ -44,6 +44,7 @@
 }
 .img > img {
     border-radius: var(--theme-shape-cardBorderRadius);
+    object-fit: cover;
 }
 
 .localeTag {

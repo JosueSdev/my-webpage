@@ -22,8 +22,17 @@
         "url": "/api/recipe",
         "showUrl": "/api/recipe",
         "desc": {
-            "es": "Obtén la lista de recetas disponibles (solo metadatos).",
-            "en": "Get a list of available recipes (metadata only)."
+            "es": "Obtén la lista de recetas disponibles.",
+            "en": "Get a list of available recipes."
+        }
+    },
+    {
+        "method": "GET",
+        "url": "/api/recipe/20210603-torta-ahogada",
+        "showUrl": "/api/recipe/[article]",
+        "desc": {
+            "es": "Obtén la receta solicitada.",
+            "en": "Get the requested recipe"
         }
     },
     {
@@ -31,8 +40,8 @@
         "url": "/api/info",
         "showUrl": "/api/info",
         "desc": {
-            "es": "Obtén la el contenido de la página de información (solo metadatos).",
-            "en": "Get the content from the info page (metadata only)."
+            "es": "Obtén la el contenido de la página de información.",
+            "en": "Get the content from the info page."
         }
     },
     {

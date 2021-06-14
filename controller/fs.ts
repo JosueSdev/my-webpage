@@ -7,14 +7,13 @@ import path from 'path'
 import { ILanguage } from '../domain/model/language'
 import { IRecipeRes } from '../domain/model/resource'
 
-const recipesDirectory = path.join(process.cwd(), 'resources', 'recipe', 'article')
+const basePath = process.env.NODE_ENV === "production" ? path.join(process.cwd(), ".next/server/chunks") : process.cwd()
+const recipesDirectory = path.join(basePath, 'resources', 'recipe', 'article')
 
 export type Markdown = string
 
 export function getInfobyLanguage(lang: ILanguage) {
-    let infoPath = path.join(process.cwd(), 'resources')
-    infoPath = path.join(infoPath, 'info')
-    infoPath = path.join(infoPath, `${lang.id}.md`)
+    let infoPath = path.join(basePath, 'resources', 'info', `${lang.id}.md`)
 
     return fs.readFileSync(infoPath, {encoding: 'utf-8'}).toString() as Markdown
 }

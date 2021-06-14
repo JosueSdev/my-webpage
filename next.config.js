@@ -1,10 +1,28 @@
+const path = require("path")
+const CopyPlugin = require("copy-webpack-plugin")
+
 module.exports = {
-    i18n: {
-      // These are all the locales you want to support in
-      // your application
-      locales: ['en', 'es'],
-      // This is the default locale you want to be used when visiting
-      // a non-locale prefixed path e.g. `/hello`
-      defaultLocale: 'es',
+  i18n: {
+    locales: ['en', 'es'],
+    defaultLocale: 'es',
+  },
+  future: {
+    webpack5: true,
+  },
+  webpack: function (config, { dev, isServer }) {
+      // Fixes npm packages that depend on `fs` module
+      if (!isServer) {
+          config.resolve.fallback.fs = false
+      }
+      // copy files you're interested in
+      if (!dev) {
+          config.plugins.push(
+              new CopyPlugin({
+                  patterns: [{ from: "resources", to: "resources" }],
+              })
+          )
+      }
+
+      return config
   }
 }
